@@ -12,7 +12,7 @@
   props: {
     imageSrc: {
       type: String,
-      default: "images/context-background/left-center.png"
+      default: "src/context-background/left-center.png"
     }
   }
 
@@ -30,7 +30,7 @@
  computed: {
     titleBg() {
       return {
-        backgroundImage: `url(images/${require(this.imageSrc)})`
+        backgroundImage: `url(src/${require(this.imageSrc)})`
       };
     },
   },
