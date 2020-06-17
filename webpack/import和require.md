@@ -4,7 +4,7 @@
  computed: {
     titleBg() {
       return {
-        backgroundImage: `url(${import(this.imageSrc)})`
+        backgroundImage: `url(${require(this.imageSrc)})`
       };
     },
   },
@@ -18,4 +18,25 @@
 // error
 // Uncaught (in promise) Error: Cannot find module 'images/context-background/left-center.png'
   ```
-通过查资料后，了解到`require`不支持动态导入文件，需要使用`import`动态导入。
+通过查看[webpack官方文档](https://webpack.js.org/guides/dependency-management/#require-context）)关于require的动态导入:
+>
+    如果 request 含有表达式(expressions)，会创建上下文(context)，导致在编译时(compile time)并不清楚具体是哪一个模块被导入。
+>
+总结：
+ webpack本身是一个预编译的打包工具，无法预测未知变量路径，因此不能require纯变量路径，目录前必须用常量声明（可以使用alias）。
+ 参数可以使用路径+变量。需要修改如下：
+```js
+ computed: {
+    titleBg() {
+      return {
+        backgroundImage: `url(images/${require(this.imageSrc)})`
+      };
+    },
+  },
+  props: {
+    imageSrc: {
+      type: String,
+      default: "context-background/left-center.png"
+    }
+  }
+```
