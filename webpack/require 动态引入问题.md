@@ -30,7 +30,7 @@
  computed: {
     titleBg() {
       return {
-        backgroundImage: `url(src/${require(this.imageSrc)})`
+        backgroundImage: `url(${require('src/'+this.imageSrc)})`
       };
     },
   },
