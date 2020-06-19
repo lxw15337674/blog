@@ -91,24 +91,24 @@ components.keys().forEach((fileName) => {
 ```
 此时才获得真正的模块，进行组件的声明,如下：
 ```js
-const components = require.context("./components", false, /\.vue$/)
+const context = require.context("./components", false, /\.vue$/)
 const modules={}
-components.keys().forEach((fileName) => {
+context.keys().forEach((fileName) => {
   const name = fileName.split('/')
           .pop()
           .replace(/\.\w+$/, '')
-  modules[name]= components(fileName).default ||components(fileName)
+  modules[name]= context(fileName).default ||context(fileName)
 });
 
 components: ...modules
 ```
 ## 扩展
-通过这个API可以打开新世界的大门，可以代替各种声明代码，以下举例：
+通过这个API可以打开新世界的大门，可以代替各种声明代码，例如：
 1. 全局组件声明
 ```js
-const requireGlobalComponent = require.context('./global-components', false, /\.vue$/);
-requireGlobalComponent.keys().forEach((fileName) => {
-    const componentConfig = requireGlobalComponent(fileName);
+const context = require.context('./global-components', false, /\.vue$/);
+context.keys().forEach((fileName) => {
+    const componentConfig = context(fileName);
     const componentName = `g-${fileName
         .split('/')
         .pop()
@@ -118,12 +118,12 @@ requireGlobalComponent.keys().forEach((fileName) => {
 ```
 2. vuex模块导入
 ```js
-const modulesFiles = require.context('./modules', true, /\.js$/);
+const context = require.context('./modules', true, /\.js$/);
 
-const modules = modulesFiles.keys().reduce((modules, modulePath) => {
+const modules = context.keys().reduce((modules, modulePath) => {
   // set './app.js' => 'app'
   const moduleName = modulePath.replace(/^\.\/(.*)\.\w+$/, '$1');
-  const value = modulesFiles(modulePath);
+  const value = context(modulePath);
   modules[moduleName] = value.default;
   return modules;
 }, {});
