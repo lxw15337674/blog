@@ -78,7 +78,6 @@ components.keys().forEach((fileName) => {
 这时还不是我们想要的模块，需要将文件名带入返回的方法中，得到真正的modules，再通过modeles的default获得导出的默认模块，如下：
 ```js
 const components = require.context("./components", false, /\.vue$/)
-const modules={}
 components.keys().forEach((fileName) => {
     components(fileName).default 
 });
