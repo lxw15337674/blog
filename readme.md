@@ -2,7 +2,7 @@
 ## todo
 - [ ] <<webpack>>
 - [ ] 算法
-- [x] TS  
+- [ ] [typescript](https://www.typescriptlang.org/docs/handbook/interfaces.html) 
 - [ ] https://m1.ftqq.com/291.page
 - [ ] https://draven.co/whys-the-design/
 - [ ] https://ihateregex.io/
