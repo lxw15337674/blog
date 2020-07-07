@@ -17,3 +17,19 @@ npm i -D typescript ts-loader
   ]
 }
 ```
+3. webpack设置文件后缀补全。
+
+在ts文件中引入其他ts文件会提示不能以'.ts'扩展名结尾。
+>TS2691: An import path cannot end with a '.ts' extension. Consider importing './math' instead.
+>
+但webpack默认不会补全ts文件，就会在浏览器报错。
+```js
+// vue-cli默认补全后缀
+[ '.mjs','.js',  '.jsx','.vue',  '.json','.wasm']
+```
+解决办法：配置webpack的扩展名处理。
+```
+resolve: {
+        extensions: ['.ts', '.mjs','.js',  '.jsx','.vue',  '.json','.wasm']
+    },  
+```
