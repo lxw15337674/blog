@@ -42,3 +42,5 @@ npm install 或npm i
 1.  `devDependencies` 存放在本地开发用的，例如检测代码规范的`eslint`、测试的`jest`、css预处理器`stylus`。
 2.  `dependencies` 存放生产环境用到的，例如js框架`vue`、页面路由`vue-router`、ui框架`element-ui`。
 
+## link
+https://www.axihe.com/api/npm/cli/npm-link.html
