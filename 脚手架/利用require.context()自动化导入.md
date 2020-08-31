@@ -18,7 +18,6 @@ import baseData from "./components/baseData";
 > [webpack官方文档](https://webpack.js.org/guides/dependency-management/#require-context）)：
 可以使用require.context()函数创建自己的上下文。
 它允许传入要搜索的目录、指示是否也应该搜索子目录的标志和用于匹配文件的正则表达式。webpack在构建时在代码中解析require.context()。
-
 >
 
 #### require.context 语法
