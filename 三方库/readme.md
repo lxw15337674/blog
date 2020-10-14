@@ -58,6 +58,9 @@ mock数据
 [DPlayer](https://github.com/MoePlayer/DPlayer)
 - 弹幕视频播放器
 
+[ckplayer](https://zhuanlan.zhihu.com/p/257096128)
+- 视频播放器
+
 [APlayer](https://github.com/MoePlayer/APlayer)
 - 音乐播放器
 
