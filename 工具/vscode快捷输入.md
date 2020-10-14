@@ -239,6 +239,6 @@ function | (|) {
 }
 ```
 # Emmet 
-id：a#alpha
-class：a.beta.gamma
-attribute：a[title=hello]
+id：a#alpha  
+class：a.beta.gamma  
+attribute：a[title=hello]  
