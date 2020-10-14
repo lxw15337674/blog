@@ -26,8 +26,10 @@ mock数据
 ## 数据可视化
 [echarts](https://echarts.apache.org/zh/index.html)
 - 百度出品
+
 [F2](https://github.com/antvis/f2/blob/master/README.zh-CN.md)
 - 蚂蚁金服的移动端
+
 [G2](https://github.com/antvis/g2/)
 - 蚂蚁金服的PC端
 
