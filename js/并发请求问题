@@ -1,0 +1,61 @@
+# 并发请求问题
+
+在切换分类时，若之前切换的分类内容较多，加载时间长，在加载过程中切换类目，那么当前类目显示的内容其实是上一个类目的内容。
+
+### 解决问题思路：
+
+1. 串行请求
+
+   思路：
+
+   ​	通过并发请求限制，使后面的重复请求变为串行，保证数据为最后一个请求。
+
+   缺点：
+
+   ​	拉长请求时间：需要等候前面的请求（无效请求）执行完毕，才能执行最后的请求（有效请求）。
+
+2. 取消请求
+
+   思路：
+
+   ​	通过axios提供的cancelToken。
+
+ 3. 数据校验
+
+    思路
+
+    ​	每次请求生成唯一key，每次请求结束后验证key。
+
+    ```javascript
+    let key = null
+    
+    function request(executor){
+      let _key=++key
+      return new Promise(executor).then(res=>{
+        if(_key===key){
+          return res
+        }else{
+          return null
+        }
+      })
+    }
+    
+    const createMockHttpRequest = (mockDelayList) => {
+      for(let item of mockDelayList){
+        request(resolve=>{
+          setTimeout(()=>{ 
+          console.log(item)
+            resolve(item)}, item)
+        }).then(res=>{
+          console.log('finally',res)
+        })
+      }
+    }
+    
+    createMockHttpRequest([200, 20, 100, 300, 600, 30])
+    
+    ```
+
+    
+
+    
