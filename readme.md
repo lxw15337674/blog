@@ -10,5 +10,5 @@
 | ------------------------------------------------------------ | 
 ## 记录
 
-| [开源库](https://github.com/lxw15337674/blog/blob/master/openLibs.md) | [技术文章]([https://github.com/lxw15337674/blog/blob/main/techDoc.md](https://github.com/lxw15337674/blog/blob/master/techDoc.md)) |
+| [开源库](https://github.com/lxw15337674/blog/blob/master/openLibs.md) | [技术文章](https://github.com/lxw15337674/blog/tree/master/techPosts) |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
